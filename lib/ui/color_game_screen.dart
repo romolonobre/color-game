@@ -11,7 +11,13 @@ class ColorGameScreen extends StatefulWidget {
 }
 
 class _ColorGameScreenState extends State<ColorGameScreen> {
-  final ColorController controller = ColorController();
+  late final ColorController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = ColorController();
+  }
 
   @override
   Widget build(BuildContext context) {
