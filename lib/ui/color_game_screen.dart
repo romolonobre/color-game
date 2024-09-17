@@ -28,42 +28,40 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
         bool isColorWhite = currentColor == Colors.white;
 
         return Material(
-          child: InkWell(
+          color: currentColor,
+          child: GestureDetector(
             onTap: () => controller.currentColor.value = controller.generateColor(),
-            child: Material(
-              color: currentColor,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomText(
-                          "Hello there",
-                          color: isColorBlack ? Colors.white : Colors.black,
-                        ),
-                        CustomText(
-                          "Tap me!!",
-                          fontSize: 15,
-                          color: isColorBlack ? Colors.white : Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    right: 20,
-                    child: ElevatedButton(
-                      child: CustomText(
-                        "Don't tap me :)",
-                        fontSize: 20,
-                        color: isColorWhite ? Colors.black : currentColor,
+            child: Stack(
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomText(
+                        "Hello there",
+                        color: isColorBlack ? Colors.white : Colors.black,
                       ),
-                      onPressed: () => controller.startColorShuffle(),
-                    ),
+                      CustomText(
+                        "Tap me!!",
+                        fontSize: 15,
+                        color: isColorBlack ? Colors.white : Colors.black,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Positioned(
+                  bottom: 20,
+                  right: 20,
+                  child: ElevatedButton(
+                    child: CustomText(
+                      "Don't tap me :)",
+                      fontSize: 20,
+                      color: isColorWhite ? Colors.black : currentColor,
+                    ),
+                    onPressed: () => controller.startColorShuffle(),
+                  ),
+                ),
+              ],
             ),
           ),
         );
